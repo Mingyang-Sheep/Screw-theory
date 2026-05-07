@@ -52,7 +52,7 @@ The skill covers four interconnected modules:
 
 ### Module 1: Plücker Coordinates
 - Ray order vs Axis order definitions
-- Elliptic polar operator $\boldsymbol{\Delta}$
+- Elliptic polar operator \(\boldsymbol{\Delta}\)
 - Form conformability vs geometry conformability
 
 ### Module 2: Screw Algebra
@@ -73,7 +73,7 @@ The skill covers four interconnected modules:
 ### Module 4: Null Space Construction
 - Cofactor method (Theorem 2.1)
 - Multi-dimensional null space (Theorem 3.2)
-- Ball theorem: $\dim(\mathrm{Null}) = 6 - \mathrm{rank}$
+- Ball theorem: \(\dim(\mathrm{Null}) = 6 - \mathrm{rank}\)
 - Static vs kinematic singularity analysis
 
 ---
