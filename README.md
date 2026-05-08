@@ -78,6 +78,149 @@ The skill covers four interconnected modules:
 
 ---
 
+## Core Formula Quick Reference
+
+### Coordinate Order
+
+This document uses MLS order by default:
+
+$$
+\hat{v} =
+\begin{pmatrix}
+\boldsymbol{v} \\
+\boldsymbol{\omega}
+\end{pmatrix},
+\qquad
+\hat{f} =
+\begin{pmatrix}
+\boldsymbol{f} \\
+\boldsymbol{\tau}
+\end{pmatrix}
+\in \mathbb{R}^6
+$$
+
+Here $\boldsymbol{v}$ is the linear velocity at the reference point, $\boldsymbol{\omega}$ is the angular velocity, $\boldsymbol{f}$ is the force, and $\boldsymbol{\tau}$ is the moment about the reference point.
+
+MLS order and Ray/Plücker order are exchanged by the elliptic polar operator:
+
+$$
+\hat{v}_{\mathrm{Ray}} =
+\boldsymbol{\Delta}\hat{v}_{\mathrm{MLS}},
+\qquad
+\boldsymbol{\Delta} =
+\begin{pmatrix}
+\boldsymbol{0} & \boldsymbol{I}_3 \\
+\boldsymbol{I}_3 & \boldsymbol{0}
+\end{pmatrix},
+\qquad
+\boldsymbol{\Delta}^2 = \boldsymbol{I}_6
+$$
+
+### Screw Parameters and Reciprocal Product
+
+The pitch is defined as:
+
+$$
+h =
+\frac{\boldsymbol{\omega}\cdot\boldsymbol{v}}
+{\boldsymbol{\omega}\cdot\boldsymbol{\omega}}
+$$
+
+A general screw in Ray/Plücker order can be written as:
+
+$$
+\hat{S}_{\mathrm{Ray}} =
+\begin{pmatrix}
+\boldsymbol{s} \\
+\boldsymbol{r}\times\boldsymbol{s}+h\boldsymbol{s}
+\end{pmatrix}
+$$
+
+The corresponding MLS twist is:
+
+$$
+\hat{\xi}_{\mathrm{MLS}} =
+\begin{pmatrix}
+\boldsymbol{r}\times\boldsymbol{s}+h\boldsymbol{s} \\
+\boldsymbol{s}
+\end{pmatrix}
+$$
+
+The reciprocal product is:
+
+$$
+\hat{f}\circ\hat{v}
+=
+\boldsymbol{f}\cdot\boldsymbol{v}
++
+\boldsymbol{\tau}\cdot\boldsymbol{\omega}
+$$
+
+### Lie Bracket and Adjoint Transformation
+
+For $\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)$, the Lie bracket in MLS order is:
+
+$$
+[\hat{\xi}_1,\hat{\xi}_2]
+=
+\begin{pmatrix}
+\boldsymbol{\omega}_1\times\boldsymbol{v}_2
++
+\boldsymbol{v}_1\times\boldsymbol{\omega}_2 \\
+\boldsymbol{\omega}_1\times\boldsymbol{\omega}_2
+\end{pmatrix}
+$$
+
+The adjoint matrix of the rigid body transformation $g_{ab}=(\boldsymbol{R}_{ab},\boldsymbol{p}_{ab})$ is:
+
+$$
+\mathrm{Ad}_{g_{ab}} =
+\begin{pmatrix}
+\boldsymbol{R}_{ab} & [\boldsymbol{p}_{ab}]_{\times}\boldsymbol{R}_{ab} \\
+\boldsymbol{0} & \boldsymbol{R}_{ab}
+\end{pmatrix}
+$$
+
+Therefore:
+
+$$
+\boldsymbol{\omega}_a =
+\boldsymbol{R}_{ab}\boldsymbol{\omega}_b,
+\qquad
+\boldsymbol{v}_a =
+\boldsymbol{R}_{ab}\boldsymbol{v}_b
++
+\boldsymbol{p}_{ab}\times
+(\boldsymbol{R}_{ab}\boldsymbol{\omega}_b)
+$$
+
+### Null Space and Singularity
+
+If $\boldsymbol{S}_c=[\hat{s}_1,\ldots,\hat{s}_n]\in\mathbb{R}^{6\times n}$ is a column screw system, let $\boldsymbol{S}=\boldsymbol{S}_c^T\in\mathbb{R}^{n\times6}$. The reciprocal screw matrix $\boldsymbol{S}_r\in\mathbb{R}^{6\times m}$ satisfies:
+
+$$
+\boldsymbol{S}\boldsymbol{\Delta}\boldsymbol{S}_r
+=
+\boldsymbol{0},
+\qquad
+m =
+6-\mathrm{rank}(\boldsymbol{S})
+$$
+
+The Jacobian is usually written as:
+
+$$
+\boldsymbol{J}
+=
+[\hat{\xi}_1,\hat{\xi}_2,\ldots,\hat{\xi}_n]
+\in
+\mathbb{R}^{6\times n}
+$$
+
+A kinematic singularity is identified when $\mathrm{rank}(\boldsymbol{J})$ falls below the expected motion dimension; a static singularity is identified when the rank of the constraint matrix $\boldsymbol{W}$ falls below the expected number of constraints.
+
+---
+
 ## Key References
 
 | Author(s) | Year | Title | Venue |
