@@ -52,7 +52,7 @@
 
 ### 模块一：Plücker 坐标
 - 射线顺序与轴线顺序的定义
-- 椭圆极算子 $\boldsymbol{\Delta}$
+- 椭圆极算子 $`\boldsymbol{\Delta}`$
 - 形式相容性与几何相容性
 
 ### 模块二：旋量代数
@@ -73,7 +73,7 @@
 ### 模块四：零空间构造
 - 余因子法（定理 2.1）
 - 多维零空间（定理 3.2）
-- Ball 定理：$\dim(\mathrm{Null}) = 6 - \mathrm{rank}$
+- Ball 定理：$`\dim(\mathrm{Null}) = 6 - \mathrm{rank}`$
 - 静力学奇异与运动学奇异分析
 
 ---
@@ -99,7 +99,7 @@
 \in \mathbb{R}^6
 ```
 
-其中 $\boldsymbol{v}$ 为参考点处线速度，$\boldsymbol{\omega}$ 为角速度；$\boldsymbol{f}$ 为力，$\boldsymbol{\tau}$ 为关于参考点的力矩。
+其中 $`\boldsymbol{v}`$ 为参考点处线速度，$`\boldsymbol{\omega}`$ 为角速度；$`\boldsymbol{f}`$ 为力，$`\boldsymbol{\tau}`$ 为关于参考点的力矩。
 
 MLS 顺序与 Ray/Plücker 顺序通过椭圆极算子互换：
 
@@ -158,7 +158,7 @@ Ray/Plücker 顺序下的一般螺旋可写为：
 
 ### 李括号与伴随变换
 
-对 $\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)$，MLS 顺序下李括号为：
+对 $`\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)`$，MLS 顺序下李括号为：
 
 ```math
 [\hat{\xi}_1,\hat{\xi}_2]
@@ -171,7 +171,7 @@ Ray/Plücker 顺序下的一般螺旋可写为：
 \end{pmatrix}
 ```
 
-刚体变换 $g_{ab}=(\boldsymbol{R}_{ab},\boldsymbol{p}_{ab})$ 的伴随矩阵为：
+刚体变换 $`g_{ab}=(\boldsymbol{R}_{ab},\boldsymbol{p}_{ab})`$ 的伴随矩阵为：
 
 ```math
 \mathrm{Ad}_{g_{ab}} =
@@ -196,7 +196,7 @@ Ray/Plücker 顺序下的一般螺旋可写为：
 
 ### 零空间与奇异性
 
-若 $\boldsymbol{S}_c=[\hat{s}_1,\ldots,\hat{s}_n]\in\mathbb{R}^{6\times n}$ 为列式螺旋系，令 $\boldsymbol{S}=\boldsymbol{S}_c^T\in\mathbb{R}^{n\times6}$。互易旋量矩阵 $\boldsymbol{S}_r\in\mathbb{R}^{6\times m}$ 满足：
+若 $`\boldsymbol{S}_c=[\hat{s}_1,\ldots,\hat{s}_n]\in\mathbb{R}^{6\times n}`$ 为列式螺旋系，令 $`\boldsymbol{S}=\boldsymbol{S}_c^T\in\mathbb{R}^{n\times6}`$。互易旋量矩阵 $`\boldsymbol{S}_r\in\mathbb{R}^{6\times m}`$ 满足：
 
 ```math
 \boldsymbol{S}\boldsymbol{\Delta}\boldsymbol{S}_r
@@ -217,7 +217,7 @@ m =
 \mathbb{R}^{6\times n}
 ```
 
-运动学奇异由 $\mathrm{rank}(\boldsymbol{J})$ 低于预期运动维数判定；静力学奇异由约束矩阵 $\boldsymbol{W}$ 的秩低于预期约束数判定。
+运动学奇异由 $`\mathrm{rank}(\boldsymbol{J})`$ 低于预期运动维数判定；静力学奇异由约束矩阵 $`\boldsymbol{W}`$ 的秩低于预期约束数判定。
 
 ---
 

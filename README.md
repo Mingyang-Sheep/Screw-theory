@@ -52,7 +52,7 @@ The skill covers four interconnected modules:
 
 ### Module 1: Plücker Coordinates
 - Ray order vs Axis order definitions
-- Elliptic polar operator $\boldsymbol{\Delta}$
+- Elliptic polar operator $`\boldsymbol{\Delta}`$
 - Form conformability vs geometry conformability
 
 ### Module 2: Screw Algebra
@@ -73,7 +73,7 @@ The skill covers four interconnected modules:
 ### Module 4: Null Space Construction
 - Cofactor method (Theorem 2.1)
 - Multi-dimensional null space (Theorem 3.2)
-- Ball theorem: $\dim(\mathrm{Null}) = 6 - \mathrm{rank}$
+- Ball theorem: $`\dim(\mathrm{Null}) = 6 - \mathrm{rank}`$
 - Static vs kinematic singularity analysis
 
 ---
@@ -99,7 +99,7 @@ This document uses MLS order by default:
 \in \mathbb{R}^6
 ```
 
-Here $\boldsymbol{v}$ is the linear velocity at the reference point, $\boldsymbol{\omega}$ is the angular velocity, $\boldsymbol{f}$ is the force, and $\boldsymbol{\tau}$ is the moment about the reference point.
+Here $`\boldsymbol{v}`$ is the linear velocity at the reference point, $`\boldsymbol{\omega}`$ is the angular velocity, $`\boldsymbol{f}`$ is the force, and $`\boldsymbol{\tau}`$ is the moment about the reference point.
 
 MLS order and Ray/Plücker order are exchanged by the elliptic polar operator:
 
@@ -158,7 +158,7 @@ The reciprocal product is:
 
 ### Lie Bracket and Adjoint Transformation
 
-For $\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)$, the Lie bracket in MLS order is:
+For $`\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)`$, the Lie bracket in MLS order is:
 
 ```math
 [\hat{\xi}_1,\hat{\xi}_2]
@@ -171,7 +171,7 @@ For $\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)$, the Lie bracket in M
 \end{pmatrix}
 ```
 
-The adjoint matrix of the rigid body transformation $g_{ab}=(\boldsymbol{R}_{ab},\boldsymbol{p}_{ab})$ is:
+The adjoint matrix of the rigid body transformation $`g_{ab}=(\boldsymbol{R}_{ab},\boldsymbol{p}_{ab})`$ is:
 
 ```math
 \mathrm{Ad}_{g_{ab}} =
@@ -196,7 +196,7 @@ Therefore:
 
 ### Null Space and Singularity
 
-If $\boldsymbol{S}_c=[\hat{s}_1,\ldots,\hat{s}_n]\in\mathbb{R}^{6\times n}$ is a column screw system, let $\boldsymbol{S}=\boldsymbol{S}_c^T\in\mathbb{R}^{n\times6}$. The reciprocal screw matrix $\boldsymbol{S}_r\in\mathbb{R}^{6\times m}$ satisfies:
+If $`\boldsymbol{S}_c=[\hat{s}_1,\ldots,\hat{s}_n]\in\mathbb{R}^{6\times n}`$ is a column screw system, let $`\boldsymbol{S}=\boldsymbol{S}_c^T\in\mathbb{R}^{n\times6}`$. The reciprocal screw matrix $`\boldsymbol{S}_r\in\mathbb{R}^{6\times m}`$ satisfies:
 
 ```math
 \boldsymbol{S}\boldsymbol{\Delta}\boldsymbol{S}_r
@@ -217,7 +217,7 @@ The Jacobian is usually written as:
 \mathbb{R}^{6\times n}
 ```
 
-A kinematic singularity is identified when $\mathrm{rank}(\boldsymbol{J})$ falls below the expected motion dimension; a static singularity is identified when the rank of the constraint matrix $\boldsymbol{W}$ falls below the expected number of constraints.
+A kinematic singularity is identified when $`\mathrm{rank}(\boldsymbol{J})`$ falls below the expected motion dimension; a static singularity is identified when the rank of the constraint matrix $`\boldsymbol{W}`$ falls below the expected number of constraints.
 
 ---
 
