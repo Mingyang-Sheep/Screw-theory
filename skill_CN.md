@@ -32,13 +32,13 @@
 
 **与 Ray order 的关系**：Ray order 为 $\boldsymbol{L} = (\boldsymbol{l}^T; \boldsymbol{l}_0^T)^T$（方向在前、矩在后）。两种顺序通过椭圆极算子关联：
 
-$$
+```math
 \hat{v}_{\mathrm{Ray}} = \boldsymbol{\Delta} \, \hat{v}_{\mathrm{MLS}},
 \quad
 \boldsymbol{\Delta} = \begin{pmatrix} \boldsymbol{0} & \boldsymbol{I}_3 \\ \boldsymbol{I}_3 & \boldsymbol{0} \end{pmatrix},
 \quad
 \boldsymbol{\Delta}^2 = \boldsymbol{I}_6
-$$
+```
 
 互易积在两种顺序下值不变（因 $\boldsymbol{\Delta}^T = \boldsymbol{\Delta}$，且对偶积的结构保证了不变性）。
 
@@ -63,16 +63,18 @@ $$
 ### 1.2 椭圆极算子与关联系数
 
 - **椭圆极算子 (elliptic polar operator)** [Dai 2012, 2020]：
-$$
+
+```math
 \boldsymbol{\Delta} = \begin{pmatrix} \boldsymbol{0} & \boldsymbol{I} \\ \boldsymbol{I} & \boldsymbol{0} \end{pmatrix},
 \quad
 \boldsymbol{L} = \boldsymbol{\Delta} \boldsymbol{L}'
-$$
+```
 
 - **关联系数 (correlation coefficient)**：
-$$
+
+```math
 k = \frac{l}{L} = \frac{m}{M} = \frac{n}{N} = \frac{p}{P} = \frac{q}{Q} = \frac{r}{R}
-$$
+```
 
 ### 1.3 形式相容性 vs 几何相容性
 
@@ -96,15 +98,16 @@ $$
 ### 2.1 运动旋量 (Twist) 与力旋量 (Wrench)
 
 - **运动旋量**（速度螺旋），MLS 顺序：
-$$
+
+```math
 \hat{v} = \begin{pmatrix} \boldsymbol{v} \\ \boldsymbol{\omega} \end{pmatrix} \in \mathbb{R}^6
-$$
+```
 
 - **力旋量**（力螺旋），MLS 顺序：
 
-$$
+```math
 \hat{f} = \begin{pmatrix} \boldsymbol{f} \\ \boldsymbol{\tau} \end{pmatrix} \in \mathbb{R}^6
-$$
+```
 
 - **物理含义**：$\boldsymbol{\omega}$ 为角速度，$\boldsymbol{v}$ 为参考点处的线速度；$\boldsymbol{f}$ 为力，$\boldsymbol{\tau}$ 为关于参考点的力矩
 
@@ -115,22 +118,24 @@ $$
 - **纯转动/纯力** ($h=0$)：线矢量 (line vector)
 - **纯平移/纯力偶** ($h=\infty$)：偶量 (couple)
 **一般螺旋（Ray/Plücker 顺序）**：
-$$
+
+```math
 \hat{S}_{\mathrm{Ray}} = \begin{pmatrix} \boldsymbol{s} \\ \boldsymbol{r} \times \boldsymbol{s} + h\boldsymbol{s} \end{pmatrix}
-$$
+```
 
 **对应的 MLS 运动旋量**：
 
-$$
+```math
 \hat{\xi}_{\mathrm{MLS}} = \begin{pmatrix} \boldsymbol{r} \times \boldsymbol{s} + h\boldsymbol{s} \\ \boldsymbol{s} \end{pmatrix}
-$$
+```
+
 其中 $\boldsymbol{s}$ 为单位方向，$\boldsymbol{r}$ 为轴线上一点。若只讨论 Plücker 线坐标，应明确标注 Ray/Axis order；若讨论速度螺旋，应使用本文档默认的 MLS 顺序。
 
 ### 2.3 互易积 (Reciprocal Product)
 
-$$
+```math
 \hat{f} \circ \hat{v} = \hat{f}^T \hat{v} = \boldsymbol{f} \cdot \boldsymbol{v} + \boldsymbol{\tau} \cdot \boldsymbol{\omega}
-$$
+```
 
 **核心性质**：
 - 互易积**与坐标系选择无关** [Dai 2014, Ch.6]
@@ -138,9 +143,9 @@ $$
 
 ### 2.4 正交湮灭子空间 (Orthogonal Annihilator)
 
-$$
+```math
 U^\perp = \{ \hat{f} \in \mathbb{F}^6 \mid \hat{f} \circ \hat{v} = 0, \; \forall \hat{v} \in U \}
-$$
+```
 
 - **维度关系**：$\dim(U) + \dim(U^\perp) = 6$（由线性代数基本定理保证 [Ball 1900; Dai 2002]）
 - 若 twist 子空间 $U \subseteq \mathbb{M}^6$，则 $U^\perp \subseteq \mathbb{F}^6$ 表示对 $U$ 不做功的力空间
@@ -149,15 +154,15 @@ $$
 
 虚功原理：平衡状态下，所有力旋量对虚位移做功之和为零。对于串联机构：
 
-$$
+```math
 \boldsymbol{\tau}^T \delta\boldsymbol{\theta} = \hat{f}_{ee}^T \delta\hat{v}_{ee} = \hat{f}_{ee}^T \boldsymbol{J} \delta\boldsymbol{\theta}
-$$
+```
 
 对任意 $\delta\boldsymbol{\theta}$ 成立，故：
 
-$$
+```math
 \boxed{\boldsymbol{\tau} = \boldsymbol{J}^T \hat{f}_{ee}}
-$$
+```
 
 **力雅可比是运动雅可比的转置**——这是互易积的直接推论 [Murray, Li & Sastry 1994; Dai 2014]。
 
@@ -218,9 +223,9 @@ $$
 
 ### 2.10 雅可比矩阵构造
 
-$$
+```math
 \hat{v}_{ee} = \dot{\theta}_1 \hat{v}_1 + \dot{\theta}_2 \hat{v}_2 + \cdots = \begin{bmatrix} \hat{v}_1 & \hat{v}_2 & \cdots \end{bmatrix}_{6 \times n} \begin{pmatrix} \dot{\theta}_1 \\ \dot{\theta}_2 \\ \vdots \end{pmatrix} = \boldsymbol{J} \dot{\boldsymbol{\theta}}
-$$
+```
 
 > **规则 2.1**: 速度螺旋是瞬时量。RR 与 RP 机构在某一时刻可能产生相同的末端速度螺旋，但在其他时刻不同。
 >
@@ -232,9 +237,9 @@ $$
 
 两个运动旋量的**李括号 (Lie bracket)** 定义为：
 
-$$
+```math
 [\hat{\xi}_1, \hat{\xi}_2] = \mathrm{ad}_{\hat{\xi}_1} \hat{\xi}_2 = \begin{pmatrix} \boldsymbol{\omega}_1 \times \boldsymbol{v}_2 + \boldsymbol{v}_1 \times \boldsymbol{\omega}_2 \\ \boldsymbol{\omega}_1 \times \boldsymbol{\omega}_2 \end{pmatrix}
-$$
+```
 
 其中 $\hat{\xi}_i = (\boldsymbol{v}_i; \boldsymbol{\omega}_i)$，$\times$ 为 $\mathbb{R}^3$ 向量叉积。
 
@@ -245,9 +250,9 @@ $$
 
 **$\mathrm{ad}_{\hat{\xi}}$ 的 6×6 矩阵表示**（MLS 顺序）：
 
-$$
+```math
 \mathrm{ad}_{\hat{\xi}} = \begin{pmatrix} \boldsymbol{\omega} \times & \boldsymbol{v} \times \\ \boldsymbol{0} & \boldsymbol{\omega} \times \end{pmatrix}
-$$
+```
 
 **推导应用**：
 1. 雅可比矩阵时间导数：$\dot{\boldsymbol{J}}$ 的计算涉及李括号
@@ -268,9 +273,9 @@ $$
 
 给定单位轴 $\boldsymbol{s}$ 和转角 $\theta$，令 $\boldsymbol{A}_s$ 为 $\boldsymbol{s}$ 的反对称矩阵：
 
-$$
+```math
 \boldsymbol{R} = \boldsymbol{I} + \sin\theta \, \boldsymbol{A}_s + (1 - \cos\theta) \boldsymbol{A}_s^2
-$$
+```
 
 [Dai 2015, Eq.(5)]
 
@@ -282,9 +287,9 @@ $$
 
 ### 3.2 so(3) 李代数
 
-$$
+```math
 \boldsymbol{A}_s = \begin{pmatrix} 0 & -s_z & s_y \\ s_z & 0 & -s_x \\ -s_y & s_x & 0 \end{pmatrix} = \boldsymbol{s} \times
-$$
+```
 
 - 指数映射 $\exp: \mathfrak{so}(3) \to \mathrm{SO}(3)$
 - 对数映射 $\log: \mathrm{SO}(3) \to \mathfrak{so}(3)$
@@ -292,9 +297,9 @@ $$
 
 ### 3.3 SE(3) 有限位移旋量算子 — 6×6 矩阵
 
-$$
+```math
 \boldsymbol{T} = \begin{pmatrix} \boldsymbol{R} & \boldsymbol{0} \\ \boldsymbol{A}\boldsymbol{R} & \boldsymbol{R} \end{pmatrix} \in \mathbb{R}^{6 \times 6}
-$$
+```
 
 [Dai 2012, Eq.(7)]
 
@@ -304,9 +309,9 @@ $$
 
 任何有限位移可分解为绕某轴的旋转 + 沿该轴的平移 [Dai 2012, §3]：
 
-$$
+```math
 \boldsymbol{T} = \boldsymbol{T}_i \cdot \boldsymbol{T}_c = \begin{pmatrix} \boldsymbol{I} & \boldsymbol{0} \\ i\boldsymbol{A}_s & \boldsymbol{I} \end{pmatrix} \begin{pmatrix} \boldsymbol{R} & \boldsymbol{0} \\ [\boldsymbol{r}_e]\boldsymbol{R} & \boldsymbol{R} \end{pmatrix}
-$$
+```
 
 - **轴向平移 (axial translation)**：$i$（沿螺旋轴的位移分量）
 - **等效平移 (equivalent translation)**：$\boldsymbol{A}_e = (\boldsymbol{I} - \boldsymbol{R})\boldsymbol{r}$
@@ -326,9 +331,9 @@ $$
 
 [Dai 2012, §5]
 
-$$
+```math
 \hat{S} = \begin{pmatrix} \boldsymbol{s} \\ \boldsymbol{r} \times \boldsymbol{s} + i \cdot \boldsymbol{s}/\tan\theta \end{pmatrix}
-$$
+```
 
 特征螺旋是有限位移算子 $\boldsymbol{T}$ 的不动点集合，即 $\boldsymbol{T} \hat{S} = \hat{S}$。
 
@@ -336,9 +341,9 @@ $$
 
 对 $\boldsymbol{T}$ 求时间导数 [Dai 2012, §6]：
 
-$$
+```math
 \frac{d\boldsymbol{T}}{dt} = \begin{pmatrix} \boldsymbol{\omega} \times & \boldsymbol{0} \\ \boldsymbol{\omega}_0 \times & \boldsymbol{\omega} \times \end{pmatrix} \boldsymbol{T}
-$$
+```
 
 括号中的矩阵即为 $\mathfrak{se}(3)$ 李代数元素。这建立了有限位移（李群）与瞬时运动（李代数）之间的桥梁。
 
@@ -348,9 +353,9 @@ $$
 
 给定刚体变换 $g = (\boldsymbol{R}, \boldsymbol{p})$，其**伴随矩阵**为：
 
-$$
+```math
 \mathrm{Ad}_g = \begin{pmatrix} \boldsymbol{R} & \boldsymbol{P}\boldsymbol{R} \\ \boldsymbol{0} & \boldsymbol{R} \end{pmatrix}
-$$
+```
 
 其中 $\boldsymbol{P}$ 是位置矢量 $\boldsymbol{p}$ 的反对称矩阵。
 
@@ -358,33 +363,33 @@ $$
 
 设 $\hat{v}_b = (\boldsymbol{v}_b; \boldsymbol{\omega}_b)$ 为 twist 在坐标系 $b$ 中的表达，$g_{ab} = (\boldsymbol{R}_{ab}, \boldsymbol{p}_{ab})$ 为 $b$ 到 $a$ 的变换，则：
 
-$$
+```math
 \hat{v}_a = \mathrm{Ad}_{g_{ab}} \hat{v}_b
-$$
+```
 
 展开即：
 
-$$
+```math
 \boldsymbol{\omega}_a = \boldsymbol{R}_{ab} \boldsymbol{\omega}_b
-$$
+```
 
-$$
+```math
 \boldsymbol{v}_a = \boldsymbol{R}_{ab} \boldsymbol{v}_b + \boldsymbol{p}_{ab} \times (\boldsymbol{R}_{ab} \boldsymbol{\omega}_b)
-$$
+```
 
 **与 POE 的关系**：
 
 POE 公式中，各关节旋量 $\hat{\xi}_i$ 在局部坐标系下定义。正运动学：
 
-$$
+```math
 \boldsymbol{T}(\boldsymbol{\theta}) = e^{\theta_1 \hat{\xi}_1} e^{\theta_2 \hat{\xi}_2} \cdots e^{\theta_n \hat{\xi}_n} \boldsymbol{T}(0)
-$$
+```
 
 此处各 $\hat{\xi}_i$ 已通过 $\mathrm{Ad}_g$ 统一投影到基坐标系。空间雅可比矩阵的第 $i$ 列为：
 
-$$
+```math
 \boldsymbol{J}_s^{(i)} = \mathrm{Ad}_{e^{\theta_1 \hat{\xi}_1} \cdots e^{\theta_{i-1} \hat{\xi}_{i-1}}} \hat{\xi}_i
-$$
+```
 
 **对偶关系**：
 - 空间雅可比 $\boldsymbol{J}_s$：旋量在基坐标系中表达
@@ -395,9 +400,9 @@ $$
 
 串联机器人的正运动学 [Murray, Li & Sastry 1994; Dai 2014]：
 
-$$
+```math
 \boldsymbol{T}(\boldsymbol{\theta}) = e^{\theta_1 \hat{\xi}_1} e^{\theta_2 \hat{\xi}_2} \cdots e^{\theta_n \hat{\xi}_n} \boldsymbol{T}(0)
-$$
+```
 
 > **规则 3.1**: POE 建模中，每个关节对应一个单位运动螺旋 $\hat{\xi}_i$，指数映射将李代数元素映射为刚体变换。乘积顺序对应从基座到末端的关节链顺序。
 >
@@ -413,21 +418,21 @@ $$
 
 给定 $n$ 个旋量组成的列式螺旋系
 
-$$
+```math
 \boldsymbol{S}_c = [\hat{s}_1,\hat{s}_2,\ldots,\hat{s}_n] \in \mathbb{R}^{6\times n}
-$$
+```
 
 为匹配 Dai & Rees Jones (2002) 的行式记法，令
 
-$$
+```math
 \boldsymbol{S} = \boldsymbol{S}_c^T \in \mathbb{R}^{n\times 6}
-$$
+```
 
 则其零空间（互易旋量空间）满足：
 
-$$
+```math
 \boldsymbol{S} \boldsymbol{\Delta} \boldsymbol{S}_r = \boldsymbol{0}
-$$
+```
 
 [Dai & Rees Jones 2002, Eq.(2.4)]
 
@@ -441,9 +446,9 @@ $$
 
 给定 5 个线性无关旋量 $\hat{s}_1, \ldots, \hat{s}_5$，即 $\mathrm{rank}(\boldsymbol{S})=5$，其唯一互易旋量可通过**余因子法 (cofactor method)** 构造：
 
-$$
+```math
 \hat{s}_r = \sum_{j=1}^{6} (-1)^{j+1} M_j \hat{e}_j
-$$
+```
 
 其中 $M_j$ 是 $\boldsymbol{S}\boldsymbol{\Delta}$ 矩阵去掉第 $j$ 列后的行列式（余因子），$\hat{e}_j$ 为第 $j$ 个标准基旋量。
 

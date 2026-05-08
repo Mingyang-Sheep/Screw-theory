@@ -32,13 +32,13 @@ You operate under a strict discipline: **never "blind compute"**. Every matrix m
 
 **Relationship to Ray order**: Ray order is $\boldsymbol{L} = (\boldsymbol{l}^T; \boldsymbol{l}_0^T)^T$ (direction first, moment second). The two orders are related by the elliptic polar operator:
 
-$$
+```math
 \hat{v}_{\mathrm{Ray}} = \boldsymbol{\Delta} \, \hat{v}_{\mathrm{MLS}},
 \quad
 \boldsymbol{\Delta} = \begin{pmatrix} \boldsymbol{0} & \boldsymbol{I}_3 \\ \boldsymbol{I}_3 & \boldsymbol{0} \end{pmatrix},
 \quad
 \boldsymbol{\Delta}^2 = \boldsymbol{I}_6
-$$
+```
 
 The reciprocal product is invariant under both orders (since $\boldsymbol{\Delta}^T = \boldsymbol{\Delta}$ and the dual product structure guarantees invariance).
 
@@ -63,16 +63,18 @@ The reciprocal product is invariant under both orders (since $\boldsymbol{\Delta
 ### 1.2 Elliptic Polar Operator & Correlation Coefficient
 
 - **Elliptic polar operator** [Dai 2012, 2020]:
-$$
+
+```math
 \boldsymbol{\Delta} = \begin{pmatrix} \boldsymbol{0} & \boldsymbol{I} \\ \boldsymbol{I} & \boldsymbol{0} \end{pmatrix},
 \quad
 \boldsymbol{L} = \boldsymbol{\Delta} \boldsymbol{L}'
-$$
+```
 
 - **Correlation coefficient**:
-$$
+
+```math
 k = \frac{l}{L} = \frac{m}{M} = \frac{n}{N} = \frac{p}{P} = \frac{q}{Q} = \frac{r}{R}
-$$
+```
 
 ### 1.3 Form Conformability vs Geometry Conformability
 
@@ -96,15 +98,16 @@ $$
 ### 2.1 Twist and Wrench
 
 - **Twist** (velocity screw), MLS order:
-$$
+
+```math
 \hat{v} = \begin{pmatrix} \boldsymbol{v} \\ \boldsymbol{\omega} \end{pmatrix} \in \mathbb{R}^6
-$$
+```
 
 - **Wrench** (force screw), MLS order:
 
-$$
+```math
 \hat{f} = \begin{pmatrix} \boldsymbol{f} \\ \boldsymbol{\tau} \end{pmatrix} \in \mathbb{R}^6
-$$
+```
 
 - **Physical meaning**: $\boldsymbol{\omega}$ is angular velocity, $\boldsymbol{v}$ is linear velocity at the reference point; $\boldsymbol{f}$ is force, $\boldsymbol{\tau}$ is moment about the reference point
 
@@ -115,22 +118,24 @@ $$
 - **Pure rotation/force** ($h=0$): Line vector
 - **Pure translation/couple** ($h=\infty$): Couple
 **General screw (Ray/Plücker order)**:
-$$
+
+```math
 \hat{S}_{\mathrm{Ray}} = \begin{pmatrix} \boldsymbol{s} \\ \boldsymbol{r} \times \boldsymbol{s} + h\boldsymbol{s} \end{pmatrix}
-$$
+```
 
 **Corresponding MLS twist**:
 
-$$
+```math
 \hat{\xi}_{\mathrm{MLS}} = \begin{pmatrix} \boldsymbol{r} \times \boldsymbol{s} + h\boldsymbol{s} \\ \boldsymbol{s} \end{pmatrix}
-$$
+```
+
 where $\boldsymbol{s}$ is the unit direction and $\boldsymbol{r}$ is a point on the axis. When discussing Plücker line coordinates, explicitly mark Ray/Axis order; when discussing velocity screws, use the document's default MLS order.
 
 ### 2.3 Reciprocal Product
 
-$$
+```math
 \hat{f} \circ \hat{v} = \hat{f}^T \hat{v} = \boldsymbol{f} \cdot \boldsymbol{v} + \boldsymbol{\tau} \cdot \boldsymbol{\omega}
-$$
+```
 
 **Core properties**:
 - The reciprocal product is **independent of coordinate frame choice** [Dai 2014, Ch.6]
@@ -138,9 +143,9 @@ $$
 
 ### 2.4 Orthogonal Annihilator
 
-$$
+```math
 U^\perp = \{ \hat{f} \in \mathbb{F}^6 \mid \hat{f} \circ \hat{v} = 0, \; \forall \hat{v} \in U \}
-$$
+```
 
 - **Dimension relation**: $\dim(U) + \dim(U^\perp) = 6$ (guaranteed by fundamental theorem of linear algebra [Ball 1900; Dai 2002])
 - If twist subspace $U \subseteq \mathbb{M}^6$, then $U^\perp \subseteq \mathbb{F}^6$ represents the force space that does no work on $U$
@@ -149,15 +154,15 @@ $$
 
 Virtual work principle: In equilibrium, the sum of virtual work done by all wrenches equals zero. For serial mechanisms:
 
-$$
+```math
 \boldsymbol{\tau}^T \delta\boldsymbol{\theta} = \hat{f}_{ee}^T \delta\hat{v}_{ee} = \hat{f}_{ee}^T \boldsymbol{J} \delta\boldsymbol{\theta}
-$$
+```
 
 Since this holds for arbitrary $\delta\boldsymbol{\theta}$:
 
-$$
+```math
 \boxed{\boldsymbol{\tau} = \boldsymbol{J}^T \hat{f}_{ee}}
-$$
+```
 
 **The force Jacobian is the transpose of the motion Jacobian** — a direct consequence of the reciprocal product [Murray, Li & Sastry 1994; Dai 2014].
 
@@ -218,9 +223,9 @@ In the joint local coordinate frame (frame attached to link, $z$-axis along join
 
 ### 2.10 Jacobian Matrix Construction
 
-$$
+```math
 \hat{v}_{ee} = \dot{\theta}_1 \hat{v}_1 + \dot{\theta}_2 \hat{v}_2 + \cdots = \begin{bmatrix} \hat{v}_1 & \hat{v}_2 & \cdots \end{bmatrix}_{6 \times n} \begin{pmatrix} \dot{\theta}_1 \\ \dot{\theta}_2 \\ \vdots \end{pmatrix} = \boldsymbol{J} \dot{\boldsymbol{\theta}}
-$$
+```
 
 > **Rule 2.1**: Velocity screws are instantaneous quantities. RR and RP mechanisms may produce the same end-effector velocity screw at one instant but differ at other times.
 >
@@ -232,9 +237,9 @@ $$
 
 The **Lie bracket** of two twists is defined as:
 
-$$
+```math
 [\hat{\xi}_1, \hat{\xi}_2] = \mathrm{ad}_{\hat{\xi}_1} \hat{\xi}_2 = \begin{pmatrix} \boldsymbol{\omega}_1 \times \boldsymbol{v}_2 + \boldsymbol{v}_1 \times \boldsymbol{\omega}_2 \\ \boldsymbol{\omega}_1 \times \boldsymbol{\omega}_2 \end{pmatrix}
-$$
+```
 
 where $\hat{\xi}_i = (\boldsymbol{v}_i; \boldsymbol{\omega}_i)$ and $\times$ is the $\mathbb{R}^3$ vector cross product.
 
@@ -245,9 +250,9 @@ where $\hat{\xi}_i = (\boldsymbol{v}_i; \boldsymbol{\omega}_i)$ and $\times$ is 
 
 **6x6 matrix representation of $\mathrm{ad}_{\hat{\xi}}$** (MLS order):
 
-$$
+```math
 \mathrm{ad}_{\hat{\xi}} = \begin{pmatrix} \boldsymbol{\omega} \times & \boldsymbol{v} \times \\ \boldsymbol{0} & \boldsymbol{\omega} \times \end{pmatrix}
-$$
+```
 
 **Derivation applications**:
 1. Jacobian time derivative: $\dot{\boldsymbol{J}}$ computation involves Lie brackets
@@ -268,9 +273,9 @@ $$
 
 Given unit axis $\boldsymbol{s}$ and angle $\theta$, let $\boldsymbol{A}_s$ be the skew-symmetric matrix of $\boldsymbol{s}$:
 
-$$
+```math
 \boldsymbol{R} = \boldsymbol{I} + \sin\theta \, \boldsymbol{A}_s + (1 - \cos\theta) \boldsymbol{A}_s^2
-$$
+```
 
 [Dai 2015, Eq.(5)]
 
@@ -282,9 +287,9 @@ $$
 
 ### 3.2 so(3) Lie Algebra
 
-$$
+```math
 \boldsymbol{A}_s = \begin{pmatrix} 0 & -s_z & s_y \\ s_z & 0 & -s_x \\ -s_y & s_x & 0 \end{pmatrix} = \boldsymbol{s} \times
-$$
+```
 
 - Exponential map $\exp: \mathfrak{so}(3) \to \mathrm{SO}(3)$
 - Logarithmic map $\log: \mathrm{SO}(3) \to \mathfrak{so}(3)$
@@ -292,9 +297,9 @@ $$
 
 ### 3.3 SE(3) Finite Displacement Screw Operator — 6x6 Matrix
 
-$$
+```math
 \boldsymbol{T} = \begin{pmatrix} \boldsymbol{R} & \boldsymbol{0} \\ \boldsymbol{A}\boldsymbol{R} & \boldsymbol{R} \end{pmatrix} \in \mathbb{R}^{6 \times 6}
-$$
+```
 
 [Dai 2012, Eq.(7)]
 
@@ -304,9 +309,9 @@ where $\boldsymbol{A}$ is the skew-symmetric matrix of the displacement vector. 
 
 Any finite displacement can be decomposed as rotation about an axis + translation along that axis [Dai 2012, §3]:
 
-$$
+```math
 \boldsymbol{T} = \boldsymbol{T}_i \cdot \boldsymbol{T}_c = \begin{pmatrix} \boldsymbol{I} & \boldsymbol{0} \\ i\boldsymbol{A}_s & \boldsymbol{I} \end{pmatrix} \begin{pmatrix} \boldsymbol{R} & \boldsymbol{0} \\ [\boldsymbol{r}_e]\boldsymbol{R} & \boldsymbol{R} \end{pmatrix}
-$$
+```
 
 - **Axial translation**: $i$ (displacement component along screw axis)
 - **Equivalent translation**: $\boldsymbol{A}_e = (\boldsymbol{I} - \boldsymbol{R})\boldsymbol{r}$
@@ -326,9 +331,9 @@ $$
 
 [Dai 2012, §5]
 
-$$
+```math
 \hat{S} = \begin{pmatrix} \boldsymbol{s} \\ \boldsymbol{r} \times \boldsymbol{s} + i \cdot \boldsymbol{s}/\tan\theta \end{pmatrix}
-$$
+```
 
 The eigenscrew is the fixed point set of the finite displacement operator $\boldsymbol{T}$, i.e., $\boldsymbol{T} \hat{S} = \hat{S}$.
 
@@ -336,9 +341,9 @@ The eigenscrew is the fixed point set of the finite displacement operator $\bold
 
 Taking the time derivative of $\boldsymbol{T}$ [Dai 2012, §6]:
 
-$$
+```math
 \frac{d\boldsymbol{T}}{dt} = \begin{pmatrix} \boldsymbol{\omega} \times & \boldsymbol{0} \\ \boldsymbol{\omega}_0 \times & \boldsymbol{\omega} \times \end{pmatrix} \boldsymbol{T}
-$$
+```
 
 The matrix in brackets is the se(3) Lie algebra element. This bridges finite displacement (Lie group) and instantaneous motion (Lie algebra).
 
@@ -348,9 +353,9 @@ The matrix in brackets is the se(3) Lie algebra element. This bridges finite dis
 
 Given rigid body transformation $g = (\boldsymbol{R}, \boldsymbol{p})$, its **adjoint matrix** is:
 
-$$
+```math
 \mathrm{Ad}_g = \begin{pmatrix} \boldsymbol{R} & \boldsymbol{P}\boldsymbol{R} \\ \boldsymbol{0} & \boldsymbol{R} \end{pmatrix}
-$$
+```
 
 where $\boldsymbol{P}$ is the skew-symmetric matrix of position vector $\boldsymbol{p}$.
 
@@ -358,33 +363,33 @@ where $\boldsymbol{P}$ is the skew-symmetric matrix of position vector $\boldsym
 
 Let $\hat{v}_b = (\boldsymbol{v}_b; \boldsymbol{\omega}_b)$ be the twist expressed in frame $b$, and $g_{ab} = (\boldsymbol{R}_{ab}, \boldsymbol{p}_{ab})$ be the transformation from $b$ to $a$, then:
 
-$$
+```math
 \hat{v}_a = \mathrm{Ad}_{g_{ab}} \hat{v}_b
-$$
+```
 
 Expanded:
 
-$$
+```math
 \boldsymbol{\omega}_a = \boldsymbol{R}_{ab} \boldsymbol{\omega}_b
-$$
+```
 
-$$
+```math
 \boldsymbol{v}_a = \boldsymbol{R}_{ab} \boldsymbol{v}_b + \boldsymbol{p}_{ab} \times (\boldsymbol{R}_{ab} \boldsymbol{\omega}_b)
-$$
+```
 
 **Relation to POE**:
 
 In the POE formula, each joint screw $\hat{\xi}_i$ is defined in its local coordinate frame. Forward kinematics:
 
-$$
+```math
 \boldsymbol{T}(\boldsymbol{\theta}) = e^{\theta_1 \hat{\xi}_1} e^{\theta_2 \hat{\xi}_2} \cdots e^{\theta_n \hat{\xi}_n} \boldsymbol{T}(0)
-$$
+```
 
 Here each $\hat{\xi}_i$ is projected to the base frame via $\mathrm{Ad}_g$. The spatial Jacobian's $i$-th column is:
 
-$$
+```math
 \boldsymbol{J}_s^{(i)} = \mathrm{Ad}_{e^{\theta_1 \hat{\xi}_1} \cdots e^{\theta_{i-1} \hat{\xi}_{i-1}}} \hat{\xi}_i
-$$
+```
 
 **Duality**:
 - Spatial Jacobian $\boldsymbol{J}_s$: screws expressed in base frame
@@ -395,9 +400,9 @@ $$
 
 Forward kinematics for serial robots [Murray, Li & Sastry 1994; Dai 2014]:
 
-$$
+```math
 \boldsymbol{T}(\boldsymbol{\theta}) = e^{\theta_1 \hat{\xi}_1} e^{\theta_2 \hat{\xi}_2} \cdots e^{\theta_n \hat{\xi}_n} \boldsymbol{T}(0)
-$$
+```
 
 > **Rule 3.1**: In POE modeling, each joint corresponds to a unit twist $\hat{\xi}_i$. The exponential map maps Lie algebra elements to rigid body transformations. The product order corresponds to the joint chain order from base to end-effector.
 >
@@ -413,21 +418,21 @@ $$
 
 Given the column screw system
 
-$$
+```math
 \boldsymbol{S}_c = [\hat{s}_1,\hat{s}_2,\ldots,\hat{s}_n] \in \mathbb{R}^{6\times n}
-$$
+```
 
 use the row-form matrix
 
-$$
+```math
 \boldsymbol{S} = \boldsymbol{S}_c^T \in \mathbb{R}^{n\times 6}
-$$
+```
 
 to match Dai & Rees Jones (2002). Its null space (reciprocal screw space) satisfies:
 
-$$
+```math
 \boldsymbol{S} \boldsymbol{\Delta} \boldsymbol{S}_r = \boldsymbol{0}
-$$
+```
 
 [Dai & Rees Jones 2002, Eq.(2.4)]
 
@@ -441,9 +446,9 @@ where $\boldsymbol{\Delta}\in\mathbb{R}^{6\times 6}$ is the elliptic polar opera
 
 Given 5 linearly independent screws $\hat{s}_1, \ldots, \hat{s}_5$, i.e. $\mathrm{rank}(\boldsymbol{S})=5$, their unique reciprocal screw can be constructed via the **cofactor method**:
 
-$$
+```math
 \hat{s}_r = \sum_{j=1}^{6} (-1)^{j+1} M_j \hat{e}_j
-$$
+```
 
 where $M_j$ is the determinant (cofactor) of $\boldsymbol{S}\boldsymbol{\Delta}$ with column $j$ removed, and $\hat{e}_j$ is the $j$-th standard basis screw.
 

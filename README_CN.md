@@ -84,7 +84,7 @@
 
 本文档默认采用 MLS 顺序：
 
-$$
+```math
 \hat{v} =
 \begin{pmatrix}
 \boldsymbol{v} \\
@@ -97,13 +97,13 @@ $$
 \boldsymbol{\tau}
 \end{pmatrix}
 \in \mathbb{R}^6
-$$
+```
 
 其中 $\boldsymbol{v}$ 为参考点处线速度，$\boldsymbol{\omega}$ 为角速度；$\boldsymbol{f}$ 为力，$\boldsymbol{\tau}$ 为关于参考点的力矩。
 
 MLS 顺序与 Ray/Plücker 顺序通过椭圆极算子互换：
 
-$$
+```math
 \hat{v}_{\mathrm{Ray}} =
 \boldsymbol{\Delta}\hat{v}_{\mathrm{MLS}},
 \qquad
@@ -114,53 +114,53 @@ $$
 \end{pmatrix},
 \qquad
 \boldsymbol{\Delta}^2 = \boldsymbol{I}_6
-$$
+```
 
 ### 螺旋参数与互易积
 
 螺距定义为：
 
-$$
+```math
 h =
 \frac{\boldsymbol{\omega}\cdot\boldsymbol{v}}
 {\boldsymbol{\omega}\cdot\boldsymbol{\omega}}
-$$
+```
 
 Ray/Plücker 顺序下的一般螺旋可写为：
 
-$$
+```math
 \hat{S}_{\mathrm{Ray}} =
 \begin{pmatrix}
 \boldsymbol{s} \\
 \boldsymbol{r}\times\boldsymbol{s}+h\boldsymbol{s}
 \end{pmatrix}
-$$
+```
 
 对应的 MLS 运动旋量为：
 
-$$
+```math
 \hat{\xi}_{\mathrm{MLS}} =
 \begin{pmatrix}
 \boldsymbol{r}\times\boldsymbol{s}+h\boldsymbol{s} \\
 \boldsymbol{s}
 \end{pmatrix}
-$$
+```
 
 互易积为：
 
-$$
+```math
 \hat{f}\circ\hat{v}
 =
 \boldsymbol{f}\cdot\boldsymbol{v}
 +
 \boldsymbol{\tau}\cdot\boldsymbol{\omega}
-$$
+```
 
 ### 李括号与伴随变换
 
 对 $\hat{\xi}_i=(\boldsymbol{v}_i;\boldsymbol{\omega}_i)$，MLS 顺序下李括号为：
 
-$$
+```math
 [\hat{\xi}_1,\hat{\xi}_2]
 =
 \begin{pmatrix}
@@ -169,21 +169,21 @@ $$
 \boldsymbol{v}_1\times\boldsymbol{\omega}_2 \\
 \boldsymbol{\omega}_1\times\boldsymbol{\omega}_2
 \end{pmatrix}
-$$
+```
 
 刚体变换 $g_{ab}=(\boldsymbol{R}_{ab},\boldsymbol{p}_{ab})$ 的伴随矩阵为：
 
-$$
+```math
 \mathrm{Ad}_{g_{ab}} =
 \begin{pmatrix}
 \boldsymbol{R}_{ab} & [\boldsymbol{p}_{ab}]_{\times}\boldsymbol{R}_{ab} \\
 \boldsymbol{0} & \boldsymbol{R}_{ab}
 \end{pmatrix}
-$$
+```
 
 因此：
 
-$$
+```math
 \boldsymbol{\omega}_a =
 \boldsymbol{R}_{ab}\boldsymbol{\omega}_b,
 \qquad
@@ -192,30 +192,30 @@ $$
 +
 \boldsymbol{p}_{ab}\times
 (\boldsymbol{R}_{ab}\boldsymbol{\omega}_b)
-$$
+```
 
 ### 零空间与奇异性
 
 若 $\boldsymbol{S}_c=[\hat{s}_1,\ldots,\hat{s}_n]\in\mathbb{R}^{6\times n}$ 为列式螺旋系，令 $\boldsymbol{S}=\boldsymbol{S}_c^T\in\mathbb{R}^{n\times6}$。互易旋量矩阵 $\boldsymbol{S}_r\in\mathbb{R}^{6\times m}$ 满足：
 
-$$
+```math
 \boldsymbol{S}\boldsymbol{\Delta}\boldsymbol{S}_r
 =
 \boldsymbol{0},
 \qquad
 m =
 6-\mathrm{rank}(\boldsymbol{S})
-$$
+```
 
 雅可比矩阵通常写为：
 
-$$
+```math
 \boldsymbol{J}
 =
 [\hat{\xi}_1,\hat{\xi}_2,\ldots,\hat{\xi}_n]
 \in
 \mathbb{R}^{6\times n}
-$$
+```
 
 运动学奇异由 $\mathrm{rank}(\boldsymbol{J})$ 低于预期运动维数判定；静力学奇异由约束矩阵 $\boldsymbol{W}$ 的秩低于预期约束数判定。
 
